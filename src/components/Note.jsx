@@ -2,11 +2,11 @@ import React, {useContext} from 'react';
 import {NoteContext} from '../context/NoteContext';
 
 const Note = () => {
-  const { currNote, noteList, setNoteList, index, deleteNote } = useContext(NoteContext);
+  const { currNote, noteList, setNoteList } = useContext(NoteContext);
 
-  const handleDelete = (e) =>{
+   const handleDelete = () =>{
     let tempList = noteList;
-    let index = tempList.indexOf(e.target.value)
+    let index = tempList.indexOf(currNote);
     tempList.splice(index, 1);
     localStorage.setItem("Notes", JSON.stringify(tempList));
     setNoteList(tempList);

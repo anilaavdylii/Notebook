@@ -31,30 +31,11 @@ function NoteProvider({children, note}){
     }
 
 
-    const deleteNote = (e) => {
-        // let tempList = noteList;
-        // let index = tempList.indexOf(e.target.value)
-        // tempList.splice(index, 1);
-        // localStorage.setItem("Notes", JSON.stringify(tempList));
-        // setNoteList(tempList);
-        // window.location.reload();
-
-        // let tempList = noteList;
-        // noteList.map((note, index)=>{
-        //     if(note === currNote){
-        //         tempList.splice(index, 1);
-        //         localStorage.setItem("Notes", JSON.stringify(tempList));
-        //         setNoteList(tempList)
-        //         window.location.reload();
-        //     }
-        // })
-
-    }
-
+   
     return(
         <NoteContext.Provider value={{note, noteList, setNoteList, subject, setSubject,
                             content, setContent, category, setCategory, modal, setModal, 
-                            toggle, saveNote, searchTerm, setSearchTerm, currNote, setCurrNote, deleteNote
+                            toggle, saveNote, searchTerm, setSearchTerm, currNote, setCurrNote
                     }}>
             {children}
         </NoteContext.Provider>
