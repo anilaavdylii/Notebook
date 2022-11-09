@@ -7,6 +7,7 @@ import CreateNote from '../modals/CreateNote';
 const Notes = () => { 
 
   const {
+      searchTerm,
       subject,
       noteList, setNoteList,
       content, setContent,
@@ -31,7 +32,14 @@ const Notes = () => {
         <CreateNote />
         <nav className="main-nav">
           <ul className="main-nav-ul">
-              {noteList.map((note, index) => {
+              {noteList.filter((val)=>{
+                  if(searchTerm === ''){
+                    return val;
+                  }else if(val.Subject.toLowerCase().includes(searchTerm.toLowerCase())) {
+                      return val;
+                    
+                  }
+              }).map((note, index) => {
                  return (
                   <li key={index}>
                     <a href="#">{note.Subject}</a>

@@ -1,7 +1,11 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useContext } from 'react';
+import { NoteContext } from '../context/NoteContext';
 import Button from 'react-bootstrap/Button';
 
 const Search = () => {
+  const { 
+        searchTerm, setSearchTerm
+    } = useContext(NoteContext);
 
   const searchRef = useRef(null);
 
@@ -13,6 +17,7 @@ const Search = () => {
     <div className="search">
       <div className="searchForm">
         <input ref={searchRef}
+          onChange={event=> {setSearchTerm(event.target.value)}}
           className='btn-input'
           type="text"
           placeholder="Find a note"       
