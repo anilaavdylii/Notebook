@@ -1,27 +1,34 @@
-import React, { useContext} from 'react';
+import React, { useContext, useState} from 'react';
 import Button from 'react-bootstrap/Button';
 import { BsPlus } from "react-icons/bs";
 import { NoteContext } from '../context/NoteContext';
 import CreateNote from '../modals/CreateNote';
 
 const Notes = () => { 
-
   const {
-      searchTerm,
-      subject,
-      noteList, setNoteList,
-      content, setContent,
-      category, setCategory,
-      modal, setModal,
-      toggle
+    currNote, setCurrNote, searchTerm, noteList, setModal
   } = useContext(NoteContext);
+
+  
+
+  const handleChange = event =>{
+    noteList.forEach((note)=>{
+    const currSubject = event.target.value;  
+      if(note.Subject === `${currSubject}`){
+        setCurrNote(note);       
+      }
+      
+    })
+  }
 
   const handleClick = () => {
     setModal(true);
     console.log(noteList);
+    
+        console.log({currNote});
   }
 
-
+ const j = Object.values(noteList);
 
   return (
      <div>
@@ -32,7 +39,7 @@ const Notes = () => {
         <CreateNote />
         <nav className="main-nav">
           <ul className="main-nav-ul">
-              {noteList.filter((val)=>{
+              {j.filter((val) => {
                   if(searchTerm === ''){
                     return val;
                   }else if(val.Subject.toLowerCase().includes(searchTerm.toLowerCase())) {
@@ -42,7 +49,7 @@ const Notes = () => {
               }).map((note, index) => {
                  return (
                   <li key={index}>
-                    <a href="#">{note.Subject}</a>
+                    <input className="radio" type="radio" value={note.Subject} name="currName" onChange= {handleChange}/>{note.Subject}
                   </li>
                   );
                })}

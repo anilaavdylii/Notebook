@@ -60,13 +60,22 @@ li {
     height: auto;
 }
 
-.main-nav a {
-    letter-spacing: 0.2em;
-    color: rgb(0, 0, 0);
-    display: block;
-    padding: 10px 0 10px 5px;
-    border-bottom: 1px gray;
-    text-decoration: none;
+.main-nav li{
+    background-color: white;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+.main-nav li:hover {
+    background-color:#0D6AF4;
+    border-radius: 20px;
+}
+
+.main-nav li:focus, li:active {
+    background-color: #0D6AF4;
+    color: black;
+    border: none;
+    background: none;
 }
 
 .main-nav a:hover {
@@ -117,6 +126,8 @@ li {
 
 
 
+
+
 /*notes*/
 .btn-create.btn.btn-primary{
     margin-left: 150px;
@@ -131,4 +142,11 @@ li {
 }
 
 
+
+
+
+/*content*/
+.content{
+    margin: 4rem 8rem 0 0 ;
+}
 

@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 
 const Search = () => {
   const { 
-        searchTerm, setSearchTerm
+        setSearchTerm
     } = useContext(NoteContext);
 
   const searchRef = useRef(null);
