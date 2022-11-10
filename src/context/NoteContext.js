@@ -11,9 +11,11 @@ function NoteProvider({children, note}){
     
     const [currNote, setCurrNote] = useState();
 
+    const [editModal, setEditModal] = useState(false);
     const [modal, setModal] = useState(false);
+
     const toggle = () => setModal(!modal);
-    
+    const editToggle = () => setEditModal(!editModal);
     useEffect(()=>{
         let arr = localStorage.getItem("Notes");
         if(arr){
@@ -31,10 +33,23 @@ function NoteProvider({children, note}){
     }
 
 
+    // const updateListArray = (obj, index) =>{
+    //     let tempList = noteList;
+    //     tempList[index] = obj;
+    //     localStorage.setItem("Notes", JSON.stringify(tempList));
+    //     setNoteList(noteList);
+    //     window.location.reload();
+
+    // }
+
+    // const updateNote = (obj) =>{
+    //     updateListArray(obj, index)
+    // }
+
    
     return(
         <NoteContext.Provider value={{note, noteList, setNoteList, subject, setSubject,
-                            content, setContent, category, setCategory, modal, setModal, 
+                            content, setContent, category, setCategory, modal, setModal, editModal, setEditModal,   editToggle,
                             toggle, saveNote, searchTerm, setSearchTerm, currNote, setCurrNote
                     }}>
             {children}
