@@ -6,7 +6,7 @@ import CreateNote from '../modals/CreateNote';
 
 const Notes = () => { 
   const {
-    currNote, setCurrNote, searchTerm, noteList, setModal
+    currNote, setCurrNote, searchTerm, noteList, setModal,setContent, setSubject, setCategory
   } = useContext(NoteContext);
 
   
@@ -23,9 +23,10 @@ const Notes = () => {
 
   const handleClick = () => {
     setModal(true);
+    setSubject('');
+    setContent('');
+    setCategory('');
     console.log(noteList);
-    
-        console.log({currNote});
   }
 
  const j = Object.values(noteList);
@@ -48,7 +49,7 @@ const Notes = () => {
                   }
               }).map((note, index) => {
                  return (
-                  <li key={index}>
+                  <li key={index} >
                     <input className="radio" type="radio" value={note.Subject} name="currName" onChange= {handleChange}/>{note.Subject}
                   </li>
                   );

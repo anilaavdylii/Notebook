@@ -11,7 +11,7 @@ function CreateNote  () {
         subject, setSubject, 
         content, setContent, 
         category, setCategory, 
-        saveNote
+        saveNote, categoryList
     } = useContext(NoteContext);
 
 
@@ -21,6 +21,8 @@ function CreateNote  () {
 
         if(name === 'subject'){
             setSubject(value);
+        }else if(name === 'category'){
+            setCategory(value);
         }else{
             setContent(value);
         }
@@ -30,9 +32,15 @@ function CreateNote  () {
    
     const handleSave  = (event) =>{
         event.preventDefault();
+
+        let showDate = new Date();
+        var date = showDate.getDate()+'/'+(showDate.getMonth()+1)+'/'+showDate.getFullYear();
+
         var note = {};
         note["Subject"] = subject;
         note["Content"] = content;
+        note["Category"] = category;
+        note["Date"] = date;
         saveNote(note);
     }
 
@@ -53,11 +61,12 @@ function CreateNote  () {
 
                 <Form.Group className="mb-3" controlId="formBasicCategory">
                     <Form.Label>Category</Form.Label>
-                    <Form.Select defaultValue="Choose..." >
-                        <option>Choose Category</option>
-                        <option>...</option>
-                        <option>...</option>
-                        <option>...</option>
+                    <Form.Select defaultValue="Choose..." onChange={(e) => setCategory(e.target.value)}>
+                        {categoryList.map((category, index) => {
+                            return (
+                                <option key={index} value={category.name} name="category" onChange= {handleChange}>{category.name}</option>
+                            );
+                        })}
                     </Form.Select>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicContent">

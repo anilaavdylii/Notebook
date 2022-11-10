@@ -7,11 +7,11 @@ import { NoteContext } from '../context/NoteContext';
 function EditNote() {
     const {
         noteList, setNoteList,
-        editModal, setEditModal,  editToggle,
+        editModal,  editToggle,
         subject, setSubject,
         content, setContent,
         category, setCategory,
-        saveNote, currNote
+         currNote, categoryList
     } = useContext(NoteContext);
 
 
@@ -19,6 +19,7 @@ function EditNote() {
         if(currNote){
             setSubject(currNote.Subject);
             setContent(currNote.Content);
+            setCategory(currNote.Category)
         }
     },[currNote])
 
@@ -37,7 +38,9 @@ function EditNote() {
 
         if (name === 'subject') {
             setSubject(value);
-        } else {
+        }else if(name === 'category'){
+            setCategory(value);
+        }else {
             setContent(value);
         }
     }
@@ -46,9 +49,15 @@ function EditNote() {
 
     const handleUpdate = (event) => {
         event.preventDefault();
+        
+        let showDate = new Date();
+        var date = showDate.getDate()+'/'+(showDate.getMonth()+1)+'/'+showDate.getFullYear();
+
         let note = {};
         note["Subject"] = subject;
         note["Content"] = content;
+        note["Category"]= category;
+        note["Date"] = date
         updateNote(note);
     }
 
@@ -69,12 +78,13 @@ function EditNote() {
 
                     <Form.Group className="mb-3" controlId="formBasicCategory">
                         <Form.Label>Category</Form.Label>
-                        <Form.Select defaultValue="Choose..." >
-                            <option>Choose Category</option>
-                            <option>...</option>
-                            <option>...</option>
-                            <option>...</option>
-                        </Form.Select>
+                        <Form.Select  value={category.name} onChange={handleChange} name='category'>
+                        {categoryList.map((category, index) => {
+                            return (
+                                <option key={index} value={category.name} name="category" >{category.name}</option>
+                            );
+                        })}
+                    </Form.Select>
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicContent">
                         <Form.Label>Content</Form.Label>

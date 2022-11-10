@@ -12,6 +12,7 @@ const Search = () => {
   useEffect(()=>{
     searchRef.current.focus();
   },[])
+
   
   return (
     <div className="search">
@@ -22,7 +23,7 @@ const Search = () => {
           type="text"
           placeholder="Find a note"       
         />
-        <Button className='btn-search'>Search</Button>
+        
       </div>
     </div>
   );

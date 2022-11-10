@@ -6,7 +6,7 @@
     margin-top: 3rem;
     padding: 40px;
     border-radius: 2px;
-    height: 100vh;
+    min-height: 80vh;
     background-color: rgba(228, 245, 247, 0.382);
 }
 
@@ -18,22 +18,13 @@
     font-weight: bold;
 }
 
-.btn-search.btn.btn-primary{
-    height: 35px;
-    justify-content: center;
-    align-items: center;
-    border: 0px;
-    margin-left: 2px;
-}
 
-.btn-search.btn.btn-primary:hover {
-    background-color: transparent;
-    border: 2px solid #0D6AF4;
-    color: #0D6AF4;
-}
 
 .btn-input{
     height: 35px;
+    border-radius: 5px;
+    border: 1px solid #052f6e;
+    margin-left: 30px;
 }
 
 
@@ -121,7 +112,7 @@ li {
 }
 
 .category{
-    font-weight: bold;
+    font-weight: normal;
 }
 
 

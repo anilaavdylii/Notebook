@@ -22,12 +22,13 @@ const Note = () => {
             <p className='content'>Select a note to view its content</p> 
             :
             <div className='content'>
-                <h6 className='category'> Category ~ Date</h6>
-                <div className='icons'>
-                  <i onClick={()=> setEditModal(true)} className='far fa-edit mr-3' style={{'color':'#5DC250', 'cursor':'pointer'}}></i>
+              <div className='icons mb-4'>
+                  <i onClick={()=> setEditModal(true)} className='far fa-edit me-3' style={{'color':'#5DC250', 'cursor':'pointer'}}></i>
                   <i onClick={handleDelete} className='far fa-trash-alt ml-3' style={{'color':'#5DC250', 'marginRight':'5px', 'cursor':'pointer'}}></i>
                 </div>
-              <p>{currNote.Content}</p>
+                <h6 className='category'> Category  ~ <b>{currNote.Category}</b></h6>
+                <h6 className='category'> Date ~ <b>{currNote.Date}</b></h6>
+              <p>Content ~ <b>{currNote.Content}</b></p>
             </div>
         }
         <EditNote/>

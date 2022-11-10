@@ -8,6 +8,18 @@ function NoteProvider({children, note}){
     const [subject, setSubject] = useState('');
     const [content, setContent] = useState('');
     const [category, setCategory] = useState('');
+
+    const categoryList = [
+        {
+            name: 'High_Importance'
+        },
+        {
+            name: 'Medium_Importance'
+        },
+        {
+            name: 'Low_Importance'
+        }
+    ]
     
     const [currNote, setCurrNote] = useState();
 
@@ -32,25 +44,11 @@ function NoteProvider({children, note}){
         setNoteList(tempList);
     }
 
-
-    // const updateListArray = (obj, index) =>{
-    //     let tempList = noteList;
-    //     tempList[index] = obj;
-    //     localStorage.setItem("Notes", JSON.stringify(tempList));
-    //     setNoteList(noteList);
-    //     window.location.reload();
-
-    // }
-
-    // const updateNote = (obj) =>{
-    //     updateListArray(obj, index)
-    // }
-
    
     return(
         <NoteContext.Provider value={{note, noteList, setNoteList, subject, setSubject,
                             content, setContent, category, setCategory, modal, setModal, editModal, setEditModal,   editToggle,
-                            toggle, saveNote, searchTerm, setSearchTerm, currNote, setCurrNote
+                            toggle, saveNote, searchTerm, setSearchTerm, currNote, setCurrNote, categoryList
                     }}>
             {children}
         </NoteContext.Provider>
