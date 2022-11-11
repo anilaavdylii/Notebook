@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useRef, useEffect} from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import Form from 'react-bootstrap/Form';
 import { NoteContext } from '../context/NoteContext';
@@ -6,7 +6,6 @@ import { NoteContext } from '../context/NoteContext';
 
 function CreateNote  () {
     const { 
-        noteList, setNoteList,
         modal, toggle, 
         subject, setSubject, 
         content, setContent, 
@@ -14,7 +13,7 @@ function CreateNote  () {
         saveNote, categoryList
     } = useContext(NoteContext);
 
-
+    
 
     const handleChange = (e) =>{
         const {name, value} = e.target;
@@ -27,7 +26,6 @@ function CreateNote  () {
             setContent(value);
         }
     }
-
 
    
     const handleSave  = (event) =>{

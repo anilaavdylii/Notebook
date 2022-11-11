@@ -1,4 +1,4 @@
-import React, { useContext, useState} from 'react';
+import React, { useContext} from 'react';
 import Button from 'react-bootstrap/Button';
 import { BsPlus } from "react-icons/bs";
 import { NoteContext } from '../context/NoteContext';
@@ -6,7 +6,7 @@ import CreateNote from '../modals/CreateNote';
 
 const Notes = () => { 
   const {
-    currNote, setCurrNote, searchTerm, noteList, setModal,setContent, setSubject, setCategory
+     setCurrNote, searchTerm, noteList, setModal,setContent, setSubject, setCategory
   } = useContext(NoteContext);
 
   

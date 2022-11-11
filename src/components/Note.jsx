@@ -28,7 +28,7 @@ const Note = () => {
                 </div>
                 <h6 className='category'> Category  ~ <b>{currNote.Category}</b></h6>
                 <h6 className='category'> Date ~ <b>{currNote.Date}</b></h6>
-              <p>Content ~ <b>{currNote.Content}</b></p>
+                <p>Content ~ </p><h4>{currNote.Content}</h4>
             </div>
         }
         <EditNote/>

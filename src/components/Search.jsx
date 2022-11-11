@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useContext } from 'react';
 import { NoteContext } from '../context/NoteContext';
-import Button from 'react-bootstrap/Button';
 
 const Search = () => {
   const { 
