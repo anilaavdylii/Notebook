@@ -50,7 +50,7 @@ const Notes = () => {
               }).map((note, index) => {
                  return (
                   <li key={index} >
-                    <input className="radio" type="radio" value={note.Subject} name="currName" onChange= {handleChange}/>{note.Subject}
+                    <input className="radio" type="radio" value={note.Subject} name="currName" onChange= {handleChange}/>&nbsp; {note.Subject}
                   </li>
                   );
                })}
