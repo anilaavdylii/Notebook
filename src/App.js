@@ -15,12 +15,14 @@ function App() {
       <Container className='container'>
         <Row>
           <h3 className='title'>Notebook</h3>
-          <Col xs={6} md={4} className='notes'>
+         <div style={{display:"flex",gap:"2.5rem"}}>
+         <Col xs={6} md={4} className='notes'>
             <Sidebar/>
           </Col>
           <Col xs={12} md={8}>
             <Note/>
           </Col>
+         </div>
         </Row>
      </Container>
      </NoteProvider>

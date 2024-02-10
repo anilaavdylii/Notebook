@@ -1,8 +1,9 @@
 import React, { useContext} from 'react';
 import Button from 'react-bootstrap/Button';
-import { BsPlus } from "react-icons/bs";
+// import { BsPlus } from "react-icons/bs";
 import { NoteContext } from '../context/NoteContext';
 import CreateNote from '../modals/CreateNote';
+import { IoAdd } from "react-icons/io5";
 
 const Notes = () => { 
   const {
@@ -35,7 +36,9 @@ const Notes = () => {
      <div>
         <h4 className='all-notes'>
             All Notes
-            <Button className='btn-create' onClick={handleClick}><BsPlus/></Button>
+            <Button className='btn-create' onClick={handleClick}>
+              <IoAdd />
+            </Button>
         </h4>
         <CreateNote />
         <nav className="main-nav">

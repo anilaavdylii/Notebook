@@ -7,7 +7,9 @@
     padding: 40px;
     border-radius: 2px;
     min-height: 80vh;
-    background-color: rgba(228, 245, 247, 0.382);
+    background-color: rgb(128 0 128 / 4%);
+    border: 2px solid purple;
+    border-radius: 5px;
 }
 
 .notes{
@@ -123,13 +125,14 @@ li {
 /*notes*/
 .btn-create.btn.btn-primary{
     margin-left: 150px;
+    border: 1px solid;
     border-radius: 30px;
     background-color: transparent;
-    color: #0D6AF4;
+    color: purple;
 }
 
 .btn-create.btn.btn-primary:hover{
-    background-color: #0D6AF4;
+    background-color: purple;
     color: white;
 }
 
